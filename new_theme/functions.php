@@ -19,10 +19,10 @@ register_sidebar(array(
 
 add_action( 'init', 'create_team_member' );
 function create_team_member() {
-  register_post_type( 'team',
+  register_post_type( 'team_member',
     array(
       'labels' => array(
-        'name' => __( 'Teams' ),
+        'name' => __( 'Team members' ),
         'singular_name' => __( 'Name' ),
         'set_featured_image' => true
       ),
@@ -30,11 +30,11 @@ function create_team_member() {
       'capability_type' => 'post',
       'supports' => array(
         'thumbnail',
-        'editor')
+        'editor',
+        'custom-fields')
     )
   );
-register_taxonomy('prenom', 'team', array( 'hierarchical' => true, 'label' => 'Prenom', 'query_var' => true, 'rewrite' => true ) );
-register_taxonomy('nom', 'team', array( 'hierarchical' => true, 'label' => 'Nom', 'query_var' => true, 'rewrite' => true ) );
+register_taxonomy('job', 'team_member', array( 'hierarchical' => true, 'label' => 'Job', 'query_var' => true, 'rewrite' => true ) );
 
 }
 
