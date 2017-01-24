@@ -4,7 +4,7 @@
     <title><?php wp_title('|',true,'right'); bloginfo('name'); ?></title>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <link rel="profile" href="http://gmpg.org/xfn/11" />
-    <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+    <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_directory' ); ?>/style.min.css" />
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 </head>
 <body>
@@ -28,6 +28,9 @@
     ?>
 
     <div class='team'>
+      <div class="photo">
+        <?php the_post_thumbnail(); ?>
+      </div>
       <h2>
         <?php the_title(); ?>
       </h2>

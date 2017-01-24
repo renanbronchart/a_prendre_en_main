@@ -1,4 +1,5 @@
 <?php
+remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
 
 register_sidebar(array(
         'name' => 'Sidebar',
@@ -16,23 +17,25 @@ register_sidebar(array(
         'after_title' => '</h3>',
 ));
 
-
 add_action( 'init', 'create_team_member' );
 function create_team_member() {
   register_post_type( 'team',
     array(
       'labels' => array(
         'name' => __( 'Teams' ),
-        'singular_name' => __( 'Name' )
+        'singular_name' => __( 'Name' ),
+        'set_featured_image' => true
       ),
       'public' => true,
-      'capability_type' => 'post'
+      'capability_type' => 'post',
+      'supports' => array(
+        'thumbnail',
+        'editor')
     )
   );
 register_taxonomy('prenom', 'team', array( 'hierarchical' => true, 'label' => 'Prenom', 'query_var' => true, 'rewrite' => true ) );
 register_taxonomy('nom', 'team', array( 'hierarchical' => true, 'label' => 'Nom', 'query_var' => true, 'rewrite' => true ) );
 
-register_taxonomy( 'photo', 'team', 'attachment', array( 'hierarchical' => true, 'label' => 'Photo', 'query_var' => true, 'rewrite' => true ) );
 }
 
 

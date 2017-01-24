@@ -1,1 +1,3 @@
 .DS_Store
+new_theme/node_modules/
+new_theme/style.min.css
