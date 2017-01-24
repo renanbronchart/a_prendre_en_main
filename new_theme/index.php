@@ -1,5 +1,42 @@
 <?php get_header(); ?>
 
+
+<!-- Partie texte explicatif -->
+
+
+<!-- Partie Equipe -->
+
+<section>
+<div class='teams'>
+    <h2>TEAM</h2>
+    <?php
+    $loopTeam = new WP_Query( array( 'post_type' => 'team', 'posts_per_page' => 10 ) );
+    while ( $loopTeam->have_posts() ) : $loopTeam->the_post();
+        ?>
+
+        <div class='team'>
+            <div class="photo">
+                <?php the_post_thumbnail(); ?>
+            </div>
+            <h2>
+                <?php the_title(); ?>
+            </h2>
+            <div class='description'>
+                <?php the_content(); ?>
+            </div>
+        </div>
+
+        <?php
+    endwhile;
+    ?>
+
+</div>
+</section>
+
+<!-- Partie actualités Actualités -->
+
+<section>
+    <h2>Actualité</h2>
 <?php if(have_posts()): while(have_posts()): the_post(); ?>
 
 <div class="blog">
@@ -16,8 +53,34 @@
                 <div class="spacer"></div>
         </div>
 </div>
+</section>
 
 <?php endwhile; endif; ?>
+
+
+<!-- Partie partenaires test -->
+
+<section>
+    <h2>Partenaires</h2>
+    <div class='partners'>
+        <?php
+        $loopPartner = new WP_Query( array( 'post_type' => 'partenaires', 'posts_per_page' => 10 ) );
+        while ( $loopPartner->have_posts() ) : $loopPartner->the_post();
+            ?>
+
+            <div class='partner'>
+                <div class="partner_photo">
+                    <?php the_post_thumbnail('partenaires_profil'); ?>
+                </div>
+            </div>
+
+            <?php
+        endwhile;
+        ?>
+
+    </div>
+
+</section>
 
 <?php get_sidebar(); ?>
 
