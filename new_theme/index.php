@@ -1,5 +1,12 @@
 <?php get_header(); ?>
 
+<!-- fullpage test -->
+<div id="fullpage">
+    <div class="section active">Some section</div>
+    <div class="section">Some section</div>
+    <div class="section">Some section</div>
+    <div class="section">Some section</div>
+</div>
 
 <!-- Partie texte explicatif -->
 

@@ -11,6 +11,8 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js'></script>
     <!-- script js -->
 
+    <!-- vendor script css -->
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo( 'stylesheet_directory' ); ?>/development/css/jquery.fullPage.css" />
 </head>
 <body>
     <div class='header'>
