@@ -30,6 +30,7 @@ function create_team_member() {
       'capability_type' => 'post',
       'supports' => array(
         'thumbnail',
+        'title',
         'editor',
         'custom-fields')
     )

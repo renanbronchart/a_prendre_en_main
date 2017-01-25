@@ -24,7 +24,7 @@ gulp.task('jshint', function() {
 });
 
 gulp.task('build-js', function() {
-  gulp.src('./development/js/*.js')
+  gulp.src(['./development/js/init.js', './development/js/global/*.js'])
     .pipe(concat('bundle.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./'))
@@ -34,7 +34,7 @@ gulp.task('build-js', function() {
 gulp.task('watch', function () {
     gulp.watch('./development/sass/**/*.sass', ['sass'] );
     gulp.watch('./development/js/**/*.js', ['jshint']);
-    gulp.watch('./development/js/*.js', ['build-js']);
+    gulp.watch('./development/js/**/*.js', ['build-js']);
 });
 
 
