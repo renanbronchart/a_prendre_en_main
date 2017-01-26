@@ -17,13 +17,111 @@ register_sidebar(array(
     'after_title' => '</h3>',
 ));
 
+add_theme_support( 'post-thumbnails' );
+
+add_image_size( 'team_member_profil', 120, 120, true);
+
+// Plugin pout le contexte
+add_action( 'init', 'create_contexte_content' );
+
+function create_contexte_content() {
+    register_post_type( 'contexte',
+        array(
+            'labels' => array(
+                'name' => __( 'Contexte' ),
+                'singular_name' => __( 'Contexte' ),
+                'set_featured_image' => true
+            ),
+            'public' => true,
+            'capability_type' => 'post',
+            'supports' => array(
+                'thumbnail',
+                'editor',
+                'title',
+                'custom-field')
+        )
+    );
+}
+
+
+// Plugin pout les projets
+
+add_action( 'init', 'create_projet_content' );
+
+function create_projet_content() {
+    register_post_type( 'projet',
+        array(
+            'labels' => array(
+                'name' => __( 'Projet' ),
+                'singular_name' => __( 'Projet' ),
+                'set_featured_image' => true
+            ),
+            'public' => true,
+            'capability_type' => 'post',
+            'supports' => array(
+                'thumbnail',
+                'editor',
+                'title',
+                'custom-field')
+        )
+    );
+}
+
+// Plugin pout les objectifs
+
+add_action( 'init', 'create_objectif_content' );
+
+function create_objectif_content() {
+    register_post_type( 'objectif',
+        array(
+            'labels' => array(
+                'name' => __( 'Objectif' ),
+                'singular_name' => __( 'Objectif' ),
+                'set_featured_image' => true
+            ),
+            'public' => true,
+            'capability_type' => 'post',
+            'supports' => array(
+                'thumbnail',
+                'editor',
+                'title',
+                'custom-field')
+        )
+    );
+}
+
+// Plugin pout les objectifs chiffres
+
+add_action( 'init', 'create_chiffre_content' );
+
+function create_chiffre_content() {
+    register_post_type( 'chiffre',
+        array(
+            'labels' => array(
+                'name' => __( 'Chiffre' ),
+                'singular_name' => __( 'Chiffre' ),
+                'set_featured_image' => true
+            ),
+            'public' => true,
+            'capability_type' => 'post',
+            'supports' => array(
+                'thumbnail',
+                'editor',
+                'title',
+                'custom-field')
+        )
+    );
+}
+
+// Plugin pour les membres de l'équipe
+
 add_action( 'init', 'create_team_member' );
 
 function create_team_member() {
-    register_post_type( 'team_member',
+    register_post_type( 'Equipe',
         array(
             'labels' => array(
-                'name' => __( 'Team members' ),
+                'name' => __( 'Equipe' ),
                 'singular_name' => __( 'Name' ),
                 'set_featured_image' => true
             ),
@@ -41,36 +139,7 @@ function create_team_member() {
 }
 
 
-add_theme_support( 'post-thumbnails' );
-
-add_image_size( 'team_member_profil', 120, 120, true);
-
-// Création de texte explicatif
-add_action( 'init', 'create_explication_content' );
-
-function create_explication_content() {
-    register_post_type( 'explicatif',
-        array(
-            'labels' => array(
-                'name' => __( 'Explicatif' ),
-                'singular_name' => __( 'Explicatif' ),
-                'set_featured_image' => true
-            ),
-            'public' => true,
-            'capability_type' => 'post',
-            'supports' => array(
-                'thumbnail',
-                'editor',
-                'title',
-                'custom-field')
-        )
-    );
-    //register_taxonomy('job', 'team', array( 'hierarchical' => true, 'label' => 'Job', 'query_var' => true, 'rewrite' => true ) );
-
-}
-
-
-// Création de partenaire
+// Plugin pour les partenaires
 
 add_action( 'init', 'create_partners' );
 
