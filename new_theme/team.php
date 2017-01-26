@@ -37,7 +37,7 @@
 
 
 <section class='team' >
-  <div class='team__title'>
+  <div class='title-bloc'>
     <h4 class='section__title'>Notre equipe </h4>
     <h3 class='section__subtitle'>Les visages derriere ce projet</h3>
   </div>

@@ -3,35 +3,35 @@
     <img src="" alt="">
 </div>
 
-<div id="participation_don">
+<section id="participation_don">
     <div class="block_don">
 
         <?php
         $loopContexte = new WP_Query( array( 'post_type' => 'contexte', 'posts_per_page' => 10 ) );
         while ( $loopContexte->have_posts() ) : $loopContexte->the_post();
             ?>
-            <div class="content_don">
-                <div class="categorie_name_don"><?php the_field('contexte'); ?></div>
-                <div class="title_content">
-                    <?php the_title() ?>
-                </div>
+            <div class="title-bloc">
+                <h4 class="section__title"><?php the_title(); ?></h4>
+                <h3 class="section__subtitle">
+                    <?php the_field('subtitle'); ?>
+                </h3>
+            </div>
 
-                <div class="description_content">
+                <div class="description_content <?php the_field('text-align'); ?>">
                     <?php the_content() ?>
                 </div>
 
-                <div class="block_button">
-                    <a href="#" class="don_button">Faire un don</a>
+                <div class="<?php the_field('text-align'); ?>">
+                    <a href="#" class="button ghost">Faire un don</a>
                 </div>
-            </div>
             <?php
         endwhile;
         ?>
 
     </div>
-</div>
+</section>
 
-<div id="projet">
+<section id="projet">
     <div class="block_projet">
 
         <?php
@@ -39,24 +39,24 @@
         $index = -1;
         while ( $loopProjet->have_posts() ) : $loopProjet->the_post(); $index++;
         ?>
-        <div class="content_projet">
-            <h2 class="categorie_name_projet"><?php the_field('projet'); ?></h2>
-            <h1 class='title_projet'>
-                <?php the_title(); ?>
-            </h1>
-            <div class='description_projet'>
+        <div class="title-bloc">
+            <h4 class="section__title"><?php the_title(); ?></h4>
+            <h3 class='section__subtitle'>
+                <?php the_field('subtitle'); ?>
+            </h3>
+        </div>
+            <div class='description_content <?php the_field('text-align'); ?>'>
                 <?php the_content(); ?>
             </div>
-        </div>
     </div>
     <?php
     endwhile;
     ?>
 
-</div>
+</section>
 
 
-<div id="objectifs">
+<section id="objectifs">
     <div class="block_objectif">
 
         <?php
@@ -64,15 +64,15 @@
         $index = -1;
         while ( $loopObjectif->have_posts() ) : $loopObjectif->the_post(); $index++;
             ?>
-            <div class="content_objectif">
-                <h2 class="categorie_name_objectif"><?php the_field('objectif'); ?></h2>
-                <h1 class='title_objectif'>
-                    <?php the_title(); ?>
-                </h1>
-                <div class='description_objectif'>
+            <div class="title-bloc">
+                <h4 class="section__title"><?php the_title(); ?></h4>
+                <h3 class='section__subtitle'>
+                    <?php the_field('subtitle'); ?>
+                </h3>
+            </div>
+                <div class='description_content <?php the_field('text-align'); ?>'>
                     <?php the_content(); ?>
                 </div>
-            </div>
             <?php
         endwhile;
         ?>
@@ -88,10 +88,10 @@
         while ( $loopChiffre->have_posts() ) : $loopChiffre->the_post(); $index++;
             ?>
             <div class="content_chiffre">
-                <h1 class='title_chiffre'>
+                <h1 class='title_chiffre <?php the_field("text-align"); ?>'>
                     <?php the_title(); ?>
                 </h1>
-                <div class='description_chiffre'>
+                <div class='description_content <?php the_field('text-align'); ?>'>
                     <?php the_content(); ?>
                 </div>
             </div>
@@ -100,6 +100,6 @@
         ?>
 
     </div>
-</div>
+</section>
 
 

@@ -6,8 +6,10 @@
 
 
 <section class="actusContainer brown">
-  <h4 class='section__title'>NOS ACTUS</h4>
-  <h3 class='section__subtitle'>LES DERNIERES NEWS</h3>
+  <div class="title-bloc">
+    <h4 class='section__title'>NOS ACTUS</h4>
+    <h3 class='section__subtitle'>LES DERNIERES NEWS</h3>
+  </div>
   <ul class="listActus">
   <?php if(have_posts()): while(have_posts()): the_post(); ?>
       <li class="listActus__element">
@@ -36,8 +38,10 @@
 
 
 <section class='thanks white' >
-  <h4 class='section__title'>NOS PARTENAIRES</h4>
-  <h3 class='section__subtitle'>Remerciements particuliers</h3>
+  <div class="title-bloc">
+    <h4 class='section__title'>NOS PARTENAIRES</h4>
+    <h3 class='section__subtitle'>Remerciements particuliers</h3>
+  </div>
   <ul class='thanks__list'>
     <?php
       $loop = new WP_Query( array( 'post_type' => 'partners') );
@@ -60,8 +64,10 @@
 
 <section class='contactForm brown'>
   <div class="container">
-    <h4 class='section__title'>NOS PARTENAIRES</h4>
-    <h3 class='section__subtitle'>Remerciements particuliers</h3>
+    <div class="title-bloc">
+      <h4 class='section__title'>NOS PARTENAIRES</h4>
+      <h3 class='section__subtitle'>Remerciements particuliers</h3>
+    </div>
     <div class='contactForm__content'>
       <?php
         $loop = new WP_Query( array( 'post_type' => 'contactForm') );
