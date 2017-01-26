@@ -138,6 +138,120 @@ function create_team_member() {
 
 }
 
+add_action( 'init', 'partners' );
+function partners() {
+  register_post_type( 'partners',
+    array(
+      'labels' => array(
+        'name' => __( 'Partners' ),
+        'singular_name' => __( 'Partners' ),
+        'set_featured_image' => true
+      ),
+      'public' => true,
+      'capability_type' => 'post',
+      'supports' => array(
+        'thumbnail',
+        'title',
+        'editor',
+        'custom-fields')
+    )
+  );
+
+}
+
+
+add_action( 'init', 'contactForm' );
+function contactForm() {
+  register_post_type( 'contactForm',
+    array(
+      'labels' => array(
+        'name' => __( 'Contact form' ),
+        'singular_name' => __( 'contactForm' ),
+        'set_featured_image' => true
+      ),
+      'public' => true,
+      'capability_type' => 'post',
+      'supports' => array(
+        'thumbnail',
+        'title',
+        'editor',
+        'custom-fields')
+    )
+  );
+
+}
+
+add_action( 'init', 'listLinkFooter' );
+function listLinkFooter() {
+  register_post_type( 'listLinkFooter',
+    array(
+      'labels' => array(
+        'name' => __( 'List Link Footer' ),
+        'singular_name' => __( 'listLinkFooter' ),
+        'set_featured_image' => true
+      ),
+      'public' => true,
+      'capability_type' => 'post',
+      'supports' => array(
+        'thumbnail',
+        'title',
+        'editor',
+        'custom-fields')
+    )
+  );
+
+}
+
+add_action( 'init', 'credits' );
+function credits() {
+  register_post_type( 'credits',
+    array(
+      'labels' => array(
+        'name' => __( 'Credits footer' ),
+        'singular_name' => __( 'credits' ),
+        'set_featured_image' => true
+      ),
+      'public' => true,
+      'capability_type' => 'post',
+      'supports' => array(
+        'thumbnail',
+        'title',
+        'editor',
+        'custom-fields')
+    )
+  );
+
+}
+
+
+add_action( 'init', 'shareLink' );
+function shareLink() {
+  register_post_type( 'shareLink',
+    array(
+      'labels' => array(
+        'name' => __( 'ShareLink footer' ),
+        'singular_name' => __( 'shareLink' ),
+        'set_featured_image' => true
+      ),
+      'public' => true,
+      'capability_type' => 'post',
+      'supports' => array(
+        'thumbnail',
+        'title',
+        'editor',
+        'custom-fields')
+    )
+  );
+
+}
+
+
+
+function wpdocs_custom_excerpt_length( $length ) {
+    return 40;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
 
 // Plugin pour les partenaires
 

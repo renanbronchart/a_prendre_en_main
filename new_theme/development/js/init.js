@@ -18,6 +18,10 @@ var mediaQueries = mediaQueries || {};
     $(window).on('resize', function () {
       detectDevice();
     });
+
+    $(document).on('ready', function() {
+      // $('.contactForm__content').find('style').remove();
+    });
   };
 
   init();
